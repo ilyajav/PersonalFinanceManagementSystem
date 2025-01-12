@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
 
-        FinanceManager financeManager = new FinanceManager();
+        Manager financeManager = new Manager();
 
         financeManager.runProgram();
     }

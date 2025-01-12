@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.io.*;
 
-public class FinanceManager {
+public class Manager {
     private Map<String, User> users;
     private User loggedInUser;
     private final Scanner scanner;
@@ -18,12 +18,12 @@ public class FinanceManager {
     private static final String REGISTRATION_SUCCESS_MESSAGE = "Registration successful.";
 
     private static final String MENU_TEXT = """
-    1. Add income
-    2. Add expense
-    3. Set a budget
-    4. Show statistics
-    5. Transfer funds to another user
-    6. Log out
+    1 - Add income
+    2 - Add expense
+    3 - Set a budget
+    4 - Show statistics
+    5 - Transfer funds to another user
+    6 - Log out
     """;
 
     private static final String PROMPT_RECIPIENT = "Enter the login of the user you want to transfer funds to: ";
@@ -43,7 +43,7 @@ public class FinanceManager {
 
     private static final String USERS_FILE = "usersAccount.dat";
 
-    public FinanceManager() {
+    public Manager() {
         this.scanner = new Scanner(System.in);
         loadUsers();
     }
@@ -60,7 +60,7 @@ public class FinanceManager {
 
 
     private void handleGuestMenu() {
-        System.out.println("1. Login\n2. Register\n3. Log out");
+        System.out.println("1 - Login\n2 - Register\n3 - Log out");
         String choice = scanner.nextLine();
         switch (choice) {
             case "1":
@@ -145,7 +145,7 @@ public class FinanceManager {
                 showStatistics();
                 break;
             case "5":
-                transferFunds();
+                transferFundsToAntherUser();
                 break;
             case "6":
                 logOut();
@@ -175,7 +175,7 @@ public class FinanceManager {
         loggedInUser = null;
     }
 
-    private void transferFunds() {
+    private void transferFundsToAntherUser() {
         String recipientUsername = getUserInput();
         User recipient = users.get(recipientUsername);
 
@@ -199,7 +199,7 @@ public class FinanceManager {
     }
 
     private String getUserInput() {
-        System.out.print(FinanceManager.PROMPT_RECIPIENT);
+        System.out.print(Manager.PROMPT_RECIPIENT);
 
         return scanner.nextLine();
     }
