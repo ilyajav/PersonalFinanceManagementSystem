@@ -1,8 +1,8 @@
 public class Main {
     public static void main(String[] args) {
 
-        Manager financeManager = new Manager();
+        Manager manager = new Manager();
 
-        financeManager.runProgram();
+        manager.runProgram();
     }
 }
